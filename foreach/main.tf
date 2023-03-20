@@ -43,3 +43,43 @@ module "vpcs" {
   }
 
 }
+
+
+module "security_group" {
+  source = "./dynamicblocks/modules/securitygroups"
+
+  securitygroup_name        = "web"
+  securitygroup_description = "web"
+
+  securitygroup_ingress = {
+
+    # Ingress rules for web
+
+      "80" = {
+        from_port   = 80
+        to_port     = 80
+        protocol    = "tcp"
+        description = "http"
+        cidr_blocks = ["0.0.0.0/0"]
+        ipv6_cidr_blocks = ["::/0"]
+      },
+
+    "443" = {
+      from_port   = 443
+      to_port     = 443
+      protocol    = "tcp"
+      description = "https"
+      cidr_blocks = ["10.60.0.0/16"]
+      ipv6_cidr_blocks = ["::/0"]
+    },
+
+
+    }
+
+
+
+
+
+
+}
+

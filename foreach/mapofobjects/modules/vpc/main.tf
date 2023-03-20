@@ -1,7 +1,3 @@
-provider "aws" {
-    region = "us-east-1"
-}
-
 resource "aws_vpc" "main" {
     for_each = var.vpcs
     cidr_block = each.value["cidr"]

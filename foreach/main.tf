@@ -77,9 +77,28 @@ module "security_group" {
     }
 
 
+}
 
 
+module "meta_arguments_toset" {
+  source = "./meta-aruments/toset"
 
+  vpcs = [
+
+    "10.40.0.0/16", # To set loop on a list
+    "10.50.0.0/16",
+  ]
 
 }
 
+
+module "meta_arguments_mapofobjects" {
+  source = "./meta-aruments/map_of_objects"
+
+  vpcs = {
+    vpc1 = "10.40.0.0/16",
+    vpc2 = "10.50.0.0/16",
+  }
+
+
+}

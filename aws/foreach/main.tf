@@ -20,7 +20,7 @@ terraform {
 
 
 module "vpcs" {
-  source = "./mapofobjects/modules/vpc"
+  source = "mapofobjects/modules/vpc"
 
   vpcs = {
 
@@ -47,7 +47,7 @@ module "vpcs" {
 
 
 module "security_group" {
-  source = "./dynamicblocks/modules/securitygroups"
+  source = "dynamicblocks/modules/securitygroups"
 
   securitygroup_name        = "web"
   securitygroup_description = "web"
@@ -82,7 +82,7 @@ module "security_group" {
 
 
 module "meta_arguments_toset" {
-  source = "./meta-aruments/toset"
+  source = "meta-aruments/toset"
 
   vpcs = [
 
@@ -94,7 +94,7 @@ module "meta_arguments_toset" {
 
 
 module "meta_arguments_mapofobjects" {
-  source = "./meta-aruments/map_of_objects"
+  source = "meta-aruments/map_of_objects"
 
   vpcs = {
     vpc1 = "10.40.0.0/16",
